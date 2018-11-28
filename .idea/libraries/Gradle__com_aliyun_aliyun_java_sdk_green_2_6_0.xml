@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.aliyun:aliyun-java-sdk-green:2.6.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../.gradle/caches/modules-2/files-2.1/com.aliyun/aliyun-java-sdk-green/2.6.0/9e3ad5b2c0b2c49810c2d4266d46a36b56b07af8/aliyun-java-sdk-green-2.6.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../.gradle/caches/modules-2/files-2.1/com.aliyun/aliyun-java-sdk-green/2.6.0/96df8d73423e91950c5d90090370672ad9a27636/aliyun-java-sdk-green-2.6.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

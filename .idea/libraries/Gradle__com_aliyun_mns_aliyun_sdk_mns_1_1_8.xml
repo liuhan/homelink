@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.aliyun.mns:aliyun-sdk-mns:1.1.8">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../.gradle/caches/modules-2/files-2.1/com.aliyun.mns/aliyun-sdk-mns/1.1.8/9813098f84dbbfb05c4887d5c1eaa862233d0f2c/aliyun-sdk-mns-1.1.8.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../.gradle/caches/modules-2/files-2.1/com.aliyun.mns/aliyun-sdk-mns/1.1.8/a4f3c8e80f6e7f918211b465dd8217eac8bf00ee/aliyun-sdk-mns-1.1.8-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

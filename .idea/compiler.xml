@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="home_center_main" target="1.8" />
+      <module name="home_center_test" target="1.8" />
+      <module name="homelink_cloud_main" target="1.8" />
+      <module name="homelink_cloud_test" target="1.8" />
+      <module name="homelink_config_main" target="1.8" />
+      <module name="homelink_config_test" target="1.8" />
+      <module name="homelink_db_config_main" target="1.8" />
+      <module name="homelink_db_config_test" target="1.8" />
+      <module name="homelink_gateway_main" target="1.8" />
+      <module name="homelink_gateway_test" target="1.8" />
+      <module name="homelink_main" target="1.8" />
+      <module name="homelink_model_main" target="1.8" />
+      <module name="homelink_model_test" target="1.8" />
+      <module name="homelink_server_main" target="1.8" />
+      <module name="homelink_server_test" target="1.8" />
+      <module name="homelink_test" target="1.8" />
+      <module name="homelink_util_main" target="1.8" />
+      <module name="homelink_util_test" target="1.8" />
+      <module name="service_platform_main" target="1.8" />
+      <module name="service_platform_test" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

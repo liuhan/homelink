@@ -1,0 +1,6 @@
+rootProject.name = 'homelink'
+include 'homelink_util'
+include 'homelink_model'
+include 'homelink_db_config'
+include 'service_platform'
+include 'home_center'

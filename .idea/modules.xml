@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1308858898/home_center.iml" filepath="$PROJECT_DIR$/.idea/modules/1308858898/home_center.iml" group="home_center" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1308858898/home_center_main.iml" filepath="$PROJECT_DIR$/.idea/modules/1308858898/home_center_main.iml" group="home_center" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1308858898/home_center_test.iml" filepath="$PROJECT_DIR$/.idea/modules/1308858898/home_center_test.iml" group="home_center" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/homelink.iml" filepath="$PROJECT_DIR$/.idea/modules/homelink.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/homelink_client/homelink_client.iml" filepath="$PROJECT_DIR$/.idea/modules/homelink_client/homelink_client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/homelink_db_config.iml" filepath="$PROJECT_DIR$/.idea/modules/homelink_db_config.iml" group="homelink_db_config" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/homelink_db_config_main.iml" filepath="$PROJECT_DIR$/.idea/modules/homelink_db_config_main.iml" group="homelink_db_config" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/homelink_db_config_test.iml" filepath="$PROJECT_DIR$/.idea/modules/homelink_db_config_test.iml" group="homelink_db_config" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1327715308/homelink_main.iml" filepath="$PROJECT_DIR$/.idea/modules/1327715308/homelink_main.iml" group="homelink" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/homelink_model/homelink_model.iml" filepath="$PROJECT_DIR$/.idea/modules/homelink_model/homelink_model.iml" group="homelink_model" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/homelink_model_main.iml" filepath="$PROJECT_DIR$/.idea/modules/homelink_model_main.iml" group="homelink_model" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/homelink_model_test.iml" filepath="$PROJECT_DIR$/.idea/modules/homelink_model_test.iml" group="homelink_model" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/homelink_server/homelink_server.iml" filepath="$PROJECT_DIR$/.idea/modules/homelink_server/homelink_server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1327715308/homelink_test.iml" filepath="$PROJECT_DIR$/.idea/modules/1327715308/homelink_test.iml" group="homelink" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/homelink_util.iml" filepath="$PROJECT_DIR$/.idea/modules/homelink_util.iml" group="homelink_util" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/homelink_util_main.iml" filepath="$PROJECT_DIR$/.idea/modules/homelink_util_main.iml" group="homelink_util" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/homelink_util_test.iml" filepath="$PROJECT_DIR$/.idea/modules/homelink_util_test.iml" group="homelink_util" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1394355584/service_platform.iml" filepath="$PROJECT_DIR$/.idea/modules/-1394355584/service_platform.iml" group="service_platform" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1394355584/service_platform_main.iml" filepath="$PROJECT_DIR$/.idea/modules/-1394355584/service_platform_main.iml" group="service_platform" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1394355584/service_platform_test.iml" filepath="$PROJECT_DIR$/.idea/modules/-1394355584/service_platform_test.iml" group="service_platform" />
+    </modules>
+  </component>
+</project>

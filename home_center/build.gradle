@@ -10,5 +10,7 @@ repositories {
 }
 
 dependencies {
+    compile project(':homelink_model')
+    compile project(':homelink_util')
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }

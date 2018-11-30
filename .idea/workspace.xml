@@ -2,41 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c33a8edc-cd14-48f0-b1d7-12db6abb0317" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/home_center/src/main/java/com/kelent/HomeCenterApplication.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/home_center/src/main/java/com/kelent/netty/NettyChannelMap.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/home_center/src/main/java/com/kelent/netty/NettyUtil.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/home_center/src/main/java/com/kelent/netty/client/ClientTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/home_center/src/main/java/com/kelent/netty/client/NettyClient.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/home_center/src/main/java/com/kelent/netty/client/NettyClientHandler.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/home_center/src/main/java/com/kelent/netty/client/NettyClientInitializer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/home_center/src/main/java/com/kelent/netty/server/NettyHeartServerHandler.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/home_center/src/main/java/com/kelent/netty/server/NettyHttpServerBootstrap.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/home_center/src/main/java/com/kelent/netty/server/NettyHttpServerHandler.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/home_center/src/main/java/com/kelent/netty/server/NettyHttpServerInitializer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/home_center/src/main/java/com/kelent/netty/server/NettyServerBootstrap.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/home_center/src/main/java/com/kelent/netty/server/NettyServerHandler.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/home_center/src/main/java/com/kelent/netty/server/NettyServerInitializer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/home_center/src/main/java/com/kelent/netty/test/ClientMain.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/home_center/src/main/java/com/kelent/netty/test/MessageDecoder.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/home_center/src/main/java/com/kelent/netty/test/MessageEncoder.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/home_center/src/main/java/com/kelent/netty/test/NettyClient.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/home_center/src/main/java/com/kelent/netty/test/NettyClientHandler.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/home_center/src/main/java/com/kelent/netty/test/NettyClientInitializer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/home_center/src/main/java/com/kelent/netty/test/NettyServerBootstrap.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/home_center/src/main/java/com/kelent/netty/test/NettyServerHandler.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/home_center/src/main/java/com/kelent/netty/test/NettyServerInitializer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/home_center/src/main/java/com/kelent/netty/test/ServerMain.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/home_center/src/main/java/com/kelent/netty/test/SocketClient.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/home_center/src/main/java/com/kelent/netty/test/SocketClientRun.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/home_center/src/main/java/com/kelent/netty/test/SocketClientWriteRun.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/home_center/src/main/java/com/kelent/timertask/service/NettyServerService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/home_center/src/main/java/com/kelent/timertask/service/NettyTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/home_center/src/main/resources/application-dev.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/home_center/src/main/resources/application-prod.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/home_center/src/main/resources/application-test.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/home_center/src/main/resources/bootstrap.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/home_center/src/main/resources/logback-spring.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -1964,97 +1929,6 @@
             <path>
               <item name="homelink" type="b2602c69:ProjectViewProjectNode" />
               <item name="homelink" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="home_center" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="homelink" type="b2602c69:ProjectViewProjectNode" />
-              <item name="homelink" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="home_center" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="homelink" type="b2602c69:ProjectViewProjectNode" />
-              <item name="homelink" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="home_center" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="homelink" type="b2602c69:ProjectViewProjectNode" />
-              <item name="homelink" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="home_center" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="homelink" type="b2602c69:ProjectViewProjectNode" />
-              <item name="homelink" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="home_center" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="homelink" type="b2602c69:ProjectViewProjectNode" />
-              <item name="homelink" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="home_center" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="kelent" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="homelink" type="b2602c69:ProjectViewProjectNode" />
-              <item name="homelink" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="home_center" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="kelent" type="462c0819:PsiDirectoryNode" />
-              <item name="netty" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="homelink" type="b2602c69:ProjectViewProjectNode" />
-              <item name="homelink" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="home_center" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="kelent" type="462c0819:PsiDirectoryNode" />
-              <item name="netty" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="homelink" type="b2602c69:ProjectViewProjectNode" />
-              <item name="homelink" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="home_center" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="kelent" type="462c0819:PsiDirectoryNode" />
-              <item name="netty" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="homelink" type="b2602c69:ProjectViewProjectNode" />
-              <item name="homelink" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="home_center" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="kelent" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="homelink" type="b2602c69:ProjectViewProjectNode" />
-              <item name="homelink" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="homelink_util" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
             <path>
@@ -2310,7 +2184,7 @@
       <workItem from="1543332011260" duration="2509000" />
       <workItem from="1543419221293" duration="2302000" />
       <workItem from="1543505354672" duration="1710000" />
-      <workItem from="1543590952740" duration="118000" />
+      <workItem from="1543590952740" duration="350000" />
     </task>
     <task id="LOCAL-00001" summary="aaa">
       <created>1543421596000</created>
@@ -2326,15 +2200,21 @@
       <option name="project" value="LOCAL" />
       <updated>1543508143919</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="aaa">
+      <created>1543591073854</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1543591073855</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21220000" />
+    <option name="totallyTimeSpent" value="21452000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -2350,7 +2230,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25799572" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25799572" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34861407" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />

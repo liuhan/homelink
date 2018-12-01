@@ -97,7 +97,13 @@ public class Utility {
 		}
 		return str;
 	}
-
+	/**
+	 * 获取Uuid32 位随机字符串
+	 * @return
+	 */
+	public static String getUuid() {
+		return UUID.randomUUID().toString().replace("-", "");
+	}
 	/**
 	 * 处理空值的字符串
 	 *

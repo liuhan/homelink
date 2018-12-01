@@ -3,6 +3,7 @@ package com.smart.util;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
@@ -59,7 +60,19 @@ public class IPUtil {
         }
         return ip;
     }
-
+	/**
+	 * 获取服务器
+	 * @return
+	 */
+	public static String getMyIPLocal(){
+		try {
+			InetAddress ia = InetAddress.getLocalHost();
+			return ia.getHostAddress();
+		}catch (IOException e){
+			e.getStackTrace();
+		}
+		return "";
+	}
 	/**
 	 * 从Request对象中获得客户端IP，处理了HTTP代理服务器和Nginx的反向代理截取了ip
 	 * @param request

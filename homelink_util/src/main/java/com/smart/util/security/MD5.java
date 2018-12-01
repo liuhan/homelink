@@ -1,68 +1,65 @@
 package com.smart.util.security;
 
-import org.apache.commons.codec.digest.DigestUtils;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
-import java.io.UnsupportedEncodingException;
-import java.security.SignatureException;
-
-/** 
-* 功能：支付宝MD5签名处理核心文件，不需要修改
-* 版本：3.3
-* 修改日期：2012-08-17
-* 说明：
-* 以下代码只是为了方便商户测试而提供的样例代码，商户可以根据自己网站的需要，按照技术文档编写,并非一定要使用该代码。
-* 该代码仅供学习和研究支付宝接口使用，只是提供一个
-* */
-
+/**
+ * Created by syl on 2017/12/26.
+ */
 public class MD5 {
 
-    /**
-     * 签名字符串
-     * @param text 需要签名的字符串
-     * @param key 密钥
-     * @param input_charset 编码格式
-     * @return 签名结果
-     */
-    public static String sign(String text, String key, String input_charset) {
-    	text = text + key;
-        return DigestUtils.md5Hex(getContentBytes(text, input_charset));
-    }
-    
-    /**
-     * 签名字符串
-     * @param text 需要签名的字符串
-     * @param sign 签名结果
-     * @param key 密钥
-     * @param input_charset 编码格式
-     * @return 签名结果
-     */
-    public static boolean verify(String text, String sign, String key, String input_charset) {
-    	text = text + key;
-    	String mysign = DigestUtils.md5Hex(getContentBytes(text, input_charset));
-    	if(mysign.equals(sign)) {
-    		return true;
-    	}
-    	else {
-    		return false;
-    	}
+    //生成MD5
+    public static String getMD5(String message) {
+        return getMD5(  message , "UTF-8");
     }
 
-    /**
-     * @param content
-     * @param charset
-     * @return
-     * @throws SignatureException
-     * @throws UnsupportedEncodingException 
-     */
-    private static byte[] getContentBytes(String content, String charset) {
-        if (charset == null || "".equals(charset)) {
-            return content.getBytes();
-        }
+    //生成MD5
+    public static String getMD5(String message , String charName) {
+        String md5 = "";
         try {
-            return content.getBytes(charset);
-        } catch (UnsupportedEncodingException e) {
-            throw new RuntimeException("MD5签名过程中出现错误,指定的编码集不对,您目前指定的编码集是:" + charset);
+            MessageDigest md = MessageDigest.getInstance("MD5");  // 创建一个md5算法对象
+            byte[] messageByte = message.getBytes(charName);
+            byte[] md5Byte = md.digest(messageByte);              // 获得MD5字节数组,16*8=128位
+            md5 = bytesToHex(md5Byte);                            // 转换为16进制字符串
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+        return md5;
     }
 
+    /**
+     *     二进制转十六进制
+     */
+    public static String bytesToHex(byte[] bytes) {
+        StringBuffer hexStr = new StringBuffer();
+        int num;
+        for (int i = 0; i < bytes.length; i++) {
+            num = bytes[i];
+            if(num < 0) {
+                num += 256;
+            }
+            if(num < 16){
+                hexStr.append("0");
+            }
+            hexStr.append(Integer.toHexString(num));
+        }
+        return hexStr.toString().toUpperCase();
+    }
+    /**
+     * md5 加密 反转
+     * @param message
+     * @return
+     */
+    public static String getMD5Reverse(String message) {
+        try {
+            MessageDigest digest = MessageDigest.getInstance("MD5");
+            byte[] result = digest.digest(message.getBytes());
+            StringBuffer sb = new StringBuffer();
+            sb.append(getMD5(message));
+            //规则 :加密的字符取前10位拼接在加密字符后 再反转
+            return sb.append(sb.substring(0, 10)).reverse().toString();
+        } catch (NoSuchAlgorithmException ex) {
+            return message;
+        }
+    }
 }

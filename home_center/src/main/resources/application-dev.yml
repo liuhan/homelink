@@ -1,13 +1,6 @@
 server:
   port: 8888
-
-#netty
 netty:
   server.port: 9000
-  server.networkIp: im.mooplus.com.cn
+  server.networkIp: 192.168.11.7
   server.http.port: 8899
-
-#阿里OSS 文件上传  此配置在这没起作用，不想单独
-ali.oss:
-  bucket: mooplus-test
-

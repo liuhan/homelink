@@ -1,2 +1,36 @@
 # Created by .ignore support plugin (hsz.mobi)
 .gradle
+/build/
+!gradle/wrapper/gradle-wrapper.jar
+
+### STS ###
+.apt_generated
+.classpath
+/classes/
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+log.log
+log.log.*
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+/mybatis_generator/src/main/java/com
+/mybatis_generator/src/main/resources/com
+/mybatis_generator/src/main/resources/db-mysql.properties
+/mybatis_generator/resource/db/*.pdb
+log.*
+*/out
+*.pdb

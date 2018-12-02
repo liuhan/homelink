@@ -1,9 +1,10 @@
 package com.smart.homelink.netty.test;
 
-import com.smart.homelink.util.netty.Serial.kryo.KryoCodecUtil;
-import com.smart.homelink.util.netty.Serial.kryo.KryoDecoder;
-import com.smart.homelink.util.netty.Serial.kryo.KryoEncoder;
-import com.smart.homelink.util.netty.Serial.kryo.KryoPoolFactory;
+
+import com.smart.homelink.netty.util.Serial.kryo.KryoCodecUtil;
+import com.smart.homelink.netty.util.Serial.kryo.KryoDecoder;
+import com.smart.homelink.netty.util.Serial.kryo.KryoEncoder;
+import com.smart.homelink.netty.util.Serial.kryo.KryoPoolFactory;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;

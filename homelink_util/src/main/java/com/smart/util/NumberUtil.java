@@ -1,7 +1,6 @@
 package com.smart.util;
 
 import cn.jpush.api.utils.StringUtils;
-import com.smart.util.constant.RedisKey;
 import com.smart.util.redis.RedisUtil;
 
 import java.math.BigDecimal;
@@ -31,34 +30,7 @@ public class NumberUtil {
         int[] is= new int[]{i,j};
         return is;
     }
-    public static void setListMaps(List<Map> maps,RedisUtil redisUtil,boolean l){
-        if(redisUtil!=null&&l&&maps!=null&&maps.size()==4){
-            redisUtil.del(RedisKey.course_live_weekly_selection_id_cc);
-        }
-        for (Map map : maps) {//设置时间 今天 明天 或者几天后
-            if(redisUtil!=null&&l){
-                redisUtil.sadd(RedisKey.course_live_weekly_selection_id_cc, map.get("id").toString());
-            }
-            if (map.get("startTime") != null) {
-                String startTime = map.get("startTime").toString();
-                String s = DateUtil.transFormationStringDate(startTime);
-                map.put("startTimeStr", s);
-                String endTime = null;
-                if (map.get("endTime") != null) {
-                    endTime = map.get("endTime").toString();
-                }
-                map.put("statusStr", DateUtil.getStatusStr(map.get("startTime").toString(), endTime));
-            } else {
-                map.put("startTimeStr", "暂无");
-            }
-            if(map.get("joinCount") != null&& StringUtils.isNotEmpty(map.get("joinCount").toString())&&Pattern.compile("[0-9]{1,}").matcher(map.get("joinCount").toString()).matches()){
-                map.put("joinCount", com.smart.util.StringUtil.numberStr(new BigDecimal(map.get("joinCount").toString())));
-            }
-           /* if(map.get("chargeAmt") != null){
-                map.put("chargeAmt", com.smart.util.StringUtil.numberStr(new BigDecimal(map.get("chargeAmt").toString())));
-            }*/
-        }
-    }
+
     public static BigDecimal trimBigDecimal(BigDecimal bd) {
         String ss  = trim(bd.toString());
         BigDecimal bd2 = new BigDecimal(ss);

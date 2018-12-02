@@ -18,10 +18,10 @@ public class NettyServerService {
     private int nettyPort ;
 
     //netty 服务外网IP地址
-    @Value("${netty.server.networkIp}")
+    @Value("${netty.server.networkIp:192.168.11.7}")
     private String networkIp;
 
-    @Value("${netty.server.http.port}")
+    @Value("${netty.server.http.port:8899}")
     private int nettyHttpPort ;
     //netty的环境
     private static String profile = "";

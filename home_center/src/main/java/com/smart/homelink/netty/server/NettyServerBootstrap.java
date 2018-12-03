@@ -56,11 +56,7 @@ public class NettyServerBootstrap implements Runnable{
             ChannelFuture channelFuture = bootStrap.bind(port).sync();
 
             //ChannelFuture channelFuture2 = bootStrap.bind(port2).sync();     //可以绑定多个
-            if(channelFuture.isSuccess()){
-                createNode();//创建zk节点
-            }
             channelFuture.channel().closeFuture().sync();
-
             //channelFuture2.channel().closeFuture().sync();     //可以绑定多个
         } catch (Exception e){
             e.printStackTrace();
@@ -70,15 +66,6 @@ public class NettyServerBootstrap implements Runnable{
         }
     }
 
-    /**
-     * 创建zk节点
-     * @throws Exception
-     */
-    public void createNode()throws  Exception{
-        //建立节点 指定节点类型（不加withMode默认为持久类型节点）、路径、数据内容
-        ExecutorService pool = Executors.newCachedThreadPool();
-        String localIp = IPUtil.getMyIPLocal();
-        String tempEnv = "";
-    }
+
 }
 

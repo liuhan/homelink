@@ -1,0 +1,9 @@
+spring:
+  profiles:
+    active: dev
+server:
+  port: 8888
+netty:
+  server.port: 9000
+  server.networkIp: 192.168.11.7
+  server.http.port: 8899

@@ -18,10 +18,10 @@ public class NettyServerService {
     private int nettyPort ;
 
     //netty 服务外网IP地址
-    @Value("${netty.server.networkIp:192.168.11.7}")
+    @Value("${netty.server.networkIp}")
     private String networkIp;
 
-    @Value("${netty.server.http.port:8899}")
+    @Value("${netty.server.http.port}")
     private int nettyHttpPort ;
     //netty的环境
     private static String profile = "";
@@ -36,15 +36,18 @@ public class NettyServerService {
     }
 
     @Bean
-    public NettyServerService getNettyServer() throws Exception {
+    public NettyServerBootstrap nettyServerBootstrap() throws Exception {
         NettyServerBootstrap nettyServerBootstrap = new NettyServerBootstrap(nettyPort,nettyHttpPort ,networkIp );
-        NettyHttpServerBootstrap nettyHttpServerBootstrap = new NettyHttpServerBootstrap(nettyHttpPort );
         Thread th1 = new Thread(nettyServerBootstrap);
-        Thread th2 = new Thread(nettyHttpServerBootstrap);
         th1.start();
+        return nettyServerBootstrap;
+    }
+    @Bean
+    public NettyHttpServerBootstrap nettyHttpServerBootstrap() throws Exception {
+        NettyHttpServerBootstrap nettyHttpServerBootstrap = new NettyHttpServerBootstrap(nettyHttpPort );
+        Thread th2 = new Thread(nettyHttpServerBootstrap);
         th2.start();
-
-        return this;
+        return nettyHttpServerBootstrap;
     }
 
     public int getNettyPort() {

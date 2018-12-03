@@ -1,5 +1,6 @@
 package com.smart.homelink.server;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,7 +11,9 @@ import java.util.Arrays;
 
 @SpringBootApplication
 public class ServicePlatformApplication {
-
+    //netty 服务端端口
+    @Value("${netty.server.port}")
+    private int nettyPort ;
     public static void main(String[] args) {
         SpringApplication.run(ServicePlatformApplication.class, args);
     }

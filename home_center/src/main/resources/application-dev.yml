@@ -1,6 +1,16 @@
-server:
-  port: 8888
 netty:
   server.port: 9000
   server.networkIp: 192.168.11.7
   server.http.port: 8899
+
+
+#redis cluster 123.57.224.112:7000-7005
+spring.redis:
+  clusterNodes: 123.57.224.112:7000,123.57.224.112:7001,123.57.224.112:7002,123.57.224.112:7003,123.57.224.112:7004,123.57.224.112:7005
+  commandTimeout: 3000
+  #soTimeout 返回值的超时时间
+  soTimeout: 3000
+  # maxAttempts：出现异常最大重试次数
+  maxAttempts: 5
+  # password 密码
+  #password: a2VsZW50MTIzNDU2

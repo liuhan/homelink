@@ -41,6 +41,9 @@ subprojects {
         def jacksonVersion = '2.9.3'
         compile  "org.mybatis:mybatis:$mybatisVersion",
                 "org.springframework.boot:spring-boot-starter-web",
+                "org.springframework.boot:spring-boot-starter-integration",
+                "org.springframework.integration:spring-integration-stream",
+                "org.springframework.integration:spring-integration-mqtt",
                 "org.mybatis:mybatis-spring:$mybatisSpringVersion",
                 "tk.mybatis:mapper:3.4.0",
                 "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion",

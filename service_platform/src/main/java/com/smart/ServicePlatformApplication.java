@@ -1,4 +1,4 @@
-package com.smart.homelink.server;
+package com.smart;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
@@ -11,9 +11,7 @@ import java.util.Arrays;
 
 @SpringBootApplication
 public class ServicePlatformApplication {
-    //netty 服务端端口
-    @Value("${netty.server.port}")
-    private int nettyPort ;
+
     public static void main(String[] args) {
         SpringApplication.run(ServicePlatformApplication.class, args);
     }
@@ -27,7 +25,7 @@ public class ServicePlatformApplication {
             String[] beanNames = ctx.getBeanDefinitionNames();
             Arrays.sort(beanNames);
             for (String beanName : beanNames) {
-                System.out.println(beanName);
+                //System.out.println(beanName);
             }
 
         };

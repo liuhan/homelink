@@ -1,9 +1,12 @@
 spring:
   profiles:
     active: dev
+  mqtt:
+    username:
+    password:
+    url: tcp://112.126.90.93:8888
+    client.id: service_platform_consumer
+    default.topic: /homelink
+    completionTimeout: 5000
 server:
   port: 8888
-netty:
-  server.port: 9000
-  server.networkIp: 192.168.11.7
-  server.http.port: 8899

@@ -1,5 +1,6 @@
 package com.smart;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -10,6 +11,7 @@ import org.springframework.context.annotation.Bean;
 import java.util.Arrays;
 
 @SpringBootApplication
+@MapperScan("com.smart.homelink.dao")
 public class ServicePlatformApplication {
 
     public static void main(String[] args) {

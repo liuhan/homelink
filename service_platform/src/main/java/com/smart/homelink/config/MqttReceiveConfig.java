@@ -1,7 +1,11 @@
 package com.smart.homelink.config;
 
 
+import com.alibaba.fastjson.JSON;
+import com.smart.homelink.model.AirSensor;
+import com.smart.homelink.service.AirSensorService;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,6 +21,10 @@ import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.MessageHandler;
 import org.springframework.messaging.MessagingException;
+
+import java.math.BigDecimal;
+import java.util.Date;
+import java.util.Map;
 
 @Configuration
 @IntegrationComponentScan
@@ -39,7 +47,8 @@ public class MqttReceiveConfig {
 
     @Value("${spring.mqtt.completionTimeout}")
     private int completionTimeout ;   //连接超时
-
+    @Autowired
+    private AirSensorService airSensorService;
 
     @Bean
     public MqttConnectOptions getMqttConnectOptions(){
@@ -83,7 +92,15 @@ public class MqttReceiveConfig {
         return new MessageHandler() {
             @Override
             public void handleMessage(Message<?> message) throws MessagingException {
-                System.out.println(message.getPayload());
+                String json = message.getPayload().toString();
+                Map map = JSON.parseObject(json ,Map.class);
+                AirSensor airSensor = new AirSensor();
+                airSensor.setTemp((BigDecimal)map.get("T"));
+                airSensor.setAltitude((BigDecimal)map.get("altitude"));
+                airSensor.setHumidity((BigDecimal)map.get("humidity"));
+                airSensor.setQnh((BigDecimal)map.get("QNH"));
+                airSensor.setCreateTime(new Date());
+                airSensorService.save(airSensor);
             }
         };
     }

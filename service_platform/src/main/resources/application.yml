@@ -9,7 +9,7 @@ spring:
     default.topic: /homelink
     completionTimeout: 5000
   datasource:
-    url: jdbc:mysql://112.126.90.93:3306/longlian-res?useUnicode=true&autoReconnect=true&characterEncoding=UTF-8&allowMultiQueries=true
+    url: jdbc:mysql://112.126.90.93:3306/longlian-res?useUnicode=true&autoReconnect=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false
     username: root
     password: Longlian111!!!
     driverClassName: com.mysql.jdbc.Driver

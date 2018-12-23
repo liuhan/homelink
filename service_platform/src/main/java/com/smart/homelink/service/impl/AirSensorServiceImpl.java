@@ -6,6 +6,8 @@ import com.smart.homelink.service.AirSensorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Service("airSensorService")
 public class AirSensorServiceImpl implements AirSensorService {
@@ -16,6 +18,13 @@ public class AirSensorServiceImpl implements AirSensorService {
     @Override
     public void save(AirSensor airSensor) {
         airSensorMapper.insert(airSensor);
+    }
+
+    @Override
+    public List<AirSensor> getLastData(int len) {
+        System.out.println("bb");
+        List<AirSensor> list = airSensorMapper.getLastData(len);
+        return list;
     }
 
 }

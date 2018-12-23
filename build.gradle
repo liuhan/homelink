@@ -75,7 +75,7 @@ subprojects {
                 'cn.jpush.api:jpush-client:3.2.8',
                 'javax.servlet:jstl:1.2',
                 'taglibs:standard:1.1.2',
-                'com.alibaba:fastjson:1.2.8',
+                "com.alibaba:fastjson:1.2.45",
                 'javax.mail:mail:1.4.7',
                 'commons-codec:commons-codec:1.10',
                 'org.aspectj:aspectjweaver:1.8.9',
@@ -108,13 +108,10 @@ subprojects {
                 'com.squareup.okhttp3:okhttp:3.2.0',
                 'com.google.code.gson:gson:2.6.2',
                 'io.netty:netty-all:4.1.27.Final',
-                'de.javakaffee:kryo-serializers:0.42'
+                'de.javakaffee:kryo-serializers:0.42',
+                'io.springfox:springfox-swagger2:2.8.0',
+                'io.springfox:springfox-swagger-ui:2.8.0'
 
-
-        //热部署,只要是不改变方法或者类情况
-        //,"org.springframework:springloaded:1.2.8.RELEASE"
-        //热部署 支持改变方法和添加类
-        // "org.springframework.boot:spring-boot-devtools:1.5.9.RELEASE"
 
         compile ('com.github.sgroschupf:zkclient:0.1') {
             exclude(module: 'slf4j-log4j12')

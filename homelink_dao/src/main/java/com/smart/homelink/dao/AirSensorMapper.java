@@ -1,15 +1,10 @@
 package com.smart.homelink.dao;
 
 import com.smart.homelink.model.AirSensor;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.InsertProvider;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
-import org.apache.ibatis.annotations.UpdateProvider;
+import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.type.JdbcType;
+
+import java.util.List;
 
 public interface AirSensorMapper {
     /**
@@ -61,7 +56,7 @@ public interface AirSensorMapper {
         "from air_sensor",
         "where id = #{id,jdbcType=BIGINT}"
     })
-    @Results({
+    @Results(  {
         @Result(column="id", property="id", jdbcType=JdbcType.BIGINT, id=true),
         @Result(column="temp", property="temp", jdbcType=JdbcType.DECIMAL),
         @Result(column="humidity", property="humidity", jdbcType=JdbcType.DECIMAL),
@@ -96,4 +91,11 @@ public interface AirSensorMapper {
         "where id = #{id,jdbcType=BIGINT}"
     })
     int updateByPrimaryKey(AirSensor record);
+    @Select({
+            "select",
+            "id, temp, humidity, create_time, altitude, qnh",
+            "from air_sensor",
+            "order by create_time desc limit ${len}"
+    })
+    List<AirSensor> getLastData(@Param("len") Integer len);
 }

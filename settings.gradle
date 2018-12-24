@@ -5,4 +5,7 @@ include 'homelink_db_config'
 include 'service_platform'
 include 'home_center'
 include 'homelink_dao'
+include 'homelink_writer'
+include 'homelink_controller'
+include 'homelink_console'
 

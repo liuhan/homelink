@@ -12,5 +12,10 @@ repositories {
 }
 
 dependencies {
+    compile project(':homelink_dao')
+    compile project(':homelink_model')
+    compile project(':homelink_util')
+    compile  'org.xerial:sqlite-jdbc:3.25.2'
+
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }

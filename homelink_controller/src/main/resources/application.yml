@@ -1,0 +1,32 @@
+spring:
+  profiles:
+    active: dev
+  mqtt:
+    username:
+    password:
+    url: tcp://112.126.90.93:8888
+    client.id: service_platform_consumer
+    default.topic: /homelink
+    completionTimeout: 5000
+  cmqtt:
+    username:
+    password:
+    url: tcp://localhost:8888
+    client.id: home_controller
+    default.topic: /homecenter
+    completionTimeout: 5000
+  datasource:
+    url: jdbc:sqlite::resource:sqllite/controller.db
+    username:
+    password:
+    driverClassName: org.sqlite.JDBC
+
+#pagehelper 分页
+pagehelper:
+  #dialect: com.github.pagehelper.dialect.helper.MySqlDialect
+  reasonable: false
+  autoDialect: true
+
+mybatis:
+  type-aliases-package: com.smart.homelink.model
+

@@ -20,7 +20,6 @@ public class AirSensorController {
 
     @GetMapping(value = "/data")
     public Result<List> data() throws Exception {
-        System.out.println("aaaa");
         return Result.success(airSensorService.getLastData(20));
     }
 

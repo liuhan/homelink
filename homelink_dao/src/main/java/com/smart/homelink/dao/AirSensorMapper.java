@@ -56,7 +56,7 @@ public interface AirSensorMapper {
         "from air_sensor",
         "where id = #{id,jdbcType=BIGINT}"
     })
-    @Results(  {
+    @Results( id = "AirSensorMap",value = {
         @Result(column="id", property="id", jdbcType=JdbcType.BIGINT, id=true),
         @Result(column="temp", property="temp", jdbcType=JdbcType.DECIMAL),
         @Result(column="humidity", property="humidity", jdbcType=JdbcType.DECIMAL),
@@ -97,5 +97,6 @@ public interface AirSensorMapper {
             "from air_sensor",
             "order by create_time desc limit ${len}"
     })
+    @ResultMap("AirSensorMap")
     List<AirSensor> getLastData(@Param("len") Integer len);
 }

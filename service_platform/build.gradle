@@ -1,5 +1,4 @@
 group 'com.smart.homelink'
-version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
 
@@ -14,5 +13,6 @@ dependencies {
     compile project(':homelink_model')
     compile project(':homelink_util')
     compile project(':homelink_db_config')
+    compile "org.springframework.boot:spring-boot-starter-web"
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }

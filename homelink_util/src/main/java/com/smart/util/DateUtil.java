@@ -1,6 +1,6 @@
 package com.smart.util;
 
-import cn.jpush.api.utils.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.math.BigDecimal;
 import java.text.DateFormat;
@@ -385,19 +385,6 @@ public class DateUtil {
     }
 
     /**
-     * 取得前多少月的时间
-     * @param date
-     * @param monthCnt
-     * @return
-     */
-    public static Date getMonthbeteen(Date date , int monthCnt){
-        GregorianCalendar cal = new GregorianCalendar();
-        cal.setTime(date);
-        cal.add(Calendar.MONTH, monthCnt);
-        return cal.getTime();
-    }
-
-    /**
      * 取得后多少年的时间
      * @param date
      * @return
@@ -544,6 +531,17 @@ public class DateUtil {
         return format.parse(dateStr);
     }
 
+
+    /*
+     * @param dateL
+     * @return
+     * @throws ParseException
+     */
+    public static Date parseDate(Long dateL) throws ParseException {
+        Calendar c = Calendar.getInstance();
+        c.setTimeInMillis(dateL);
+        return c.getTime();
+    }
     public static Calendar parseCalendar(String formatStr, String dateStr){
         Calendar c = Calendar.getInstance();
         try {
@@ -716,7 +714,7 @@ public class DateUtil {
         Calendar wednesday = (Calendar) cal.clone();//周三
         wednesday.add(Calendar.DATE, 3 - nw + 1);
         Calendar thursday = (Calendar) cal.clone();//周四
-        thursday.add(Calendar.DATE, 4 - nw + 1);
+        thursday.add(Calendar.DATE, 4- nw + 1);
         Calendar friday = (Calendar) cal.clone();//周五
         friday.add(Calendar.DATE, 5 - nw + 1);
         Calendar saturday = (Calendar) cal.clone();//周六
@@ -781,42 +779,6 @@ public class DateUtil {
 
         return (toCalendar.getTime().getTime() - fromCalendar.getTime().getTime()) / (1000 * 60 * 60 * 24);
     }
-
-    /**
-     * 两个时间相差距离多少天多少小时多少分多少秒
-     * @param startDate 时间参数 1 格式：1990-01-01 12:00:00
-     * @param endDate 时间参数 2 格式：2009-01-01 12:00:00
-     * @return long[] 返回值为：{天, 时, 分, 秒}
-     */
-    public static long[] getDaysBetweenmm(String startDate, String endDate) {
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        Date one;
-        Date two;
-        long day = 0;
-        long hour = 0;
-        long min = 0;
-        long sec = 0;
-        try {
-            one = df.parse(startDate);
-            two = df.parse(endDate);
-            long time1 = one.getTime();
-            long time2 = two.getTime();
-            long diff ;
-            if(time1<time2) {
-                diff = time2 - time1;
-            } else {
-                diff = time1 - time2;
-            }
-            day = diff / (24 * 60 * 60 * 1000);
-            hour = (diff / (60 * 60 * 1000) - day * 24);
-            min = ((diff / (60 * 1000)) - day * 24 * 60 - hour * 60);
-            sec = (diff/1000-day*24*60*60-hour*60*60-min*60);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        long[] times = {day, hour, min, sec};
-        return times;
-    }
     /**
      * 根据指定的月字符串算出月初和月未的时间，精确到秒
      * @param monthStr
@@ -825,14 +787,14 @@ public class DateUtil {
     public static Date[] getDatetimeMonthLimit(String monthStr){
         String start = monthStr + "-01 00:00:00";
         Date startTime = DateUtil.format(start);
-        
+
         Calendar cal = Calendar.getInstance();
         cal.setTime(startTime);
-        cal.set(Calendar.DATE, cal.getActualMaximum(Calendar.DATE));  
+        cal.set(Calendar.DATE, cal.getActualMaximum(Calendar.DATE));
         Date endTime = new Date(cal.getTime().getTime() + 24 * 60 * 60 *1000l - 1l);
         return new Date[]{startTime , endTime};
     }
-    
+
     /**
      * 上月
      * 根据指定的月字符串算出月初和月未的时间，精确到秒
@@ -842,13 +804,13 @@ public class DateUtil {
     public static Date[] getDatetimePreMonthLimit(String monthStr){
         String start = monthStr + "-01 00:00:00";
         Date startTime = DateUtil.format(start);
-        
+
         Calendar cal = Calendar.getInstance();
         cal.setTime(startTime);
         cal.add(Calendar.MONTH, -1);
         startTime = cal.getTime();
-        
-        cal.set(Calendar.DATE, cal.getActualMaximum(Calendar.DATE));  
+
+        cal.set(Calendar.DATE, cal.getActualMaximum(Calendar.DATE));
         Date endTime = new Date(cal.getTime().getTime() + 24 * 60 * 60 *1000l - 1l);
         return new Date[]{startTime , endTime};
     }
@@ -861,7 +823,7 @@ public class DateUtil {
         Date start = DateUtil.parseDate(startStr);
         return new Date[]{ start, new Date(start.getTime()+ 24 * 60 * 60 *1000l - 1l)};
     }
-    
+
     /**
      * 前一天
      * 根据指定的天字符串算出天开始和天结束的时间，精确到秒
@@ -872,97 +834,97 @@ public class DateUtil {
         Date start = new Date(DateUtil.parseDate(startStr).getTime() - 24*60*60*1000l);
         return new Date[]{ start, new Date(start.getTime()+ 24 * 60 * 60 *1000l - 1l)};
     }
-    
-    
-    
-    /** 
-     *  
-     * 1 第一季度 2 第二季度 3 第三季度 4 第四季度 
-     *  
-     * @param date 
-     * @return 
-     */  
-    public static int getSeason(Date date) {  
-  
-        int season = 0;  
-  
-        Calendar c = Calendar.getInstance();  
-        c.setTime(date);  
-        int month = c.get(Calendar.MONTH);  
-        switch (month) {  
-        case Calendar.JANUARY:  
-        case Calendar.FEBRUARY:  
-        case Calendar.MARCH:  
-            season = 1;  
-            break;  
-        case Calendar.APRIL:  
-        case Calendar.MAY:  
-        case Calendar.JUNE:  
-            season = 2;  
-            break;  
-        case Calendar.JULY:  
-        case Calendar.AUGUST:  
-        case Calendar.SEPTEMBER:  
-            season = 3;  
-            break;  
-        case Calendar.OCTOBER:  
-        case Calendar.NOVEMBER:  
-        case Calendar.DECEMBER:  
-            season = 4;  
-            break;  
-        default:  
-            break;  
-        }  
-        return season;  
-    } 
-    
-    
+
+
+
+    /**
+     *
+     * 1 第一季度 2 第二季度 3 第三季度 4 第四季度
+     *
+     * @param date
+     * @return
+     */
+    public static int getSeason(Date date) {
+
+        int season = 0;
+
+        Calendar c = Calendar.getInstance();
+        c.setTime(date);
+        int month = c.get(Calendar.MONTH);
+        switch (month) {
+            case Calendar.JANUARY:
+            case Calendar.FEBRUARY:
+            case Calendar.MARCH:
+                season = 1;
+                break;
+            case Calendar.APRIL:
+            case Calendar.MAY:
+            case Calendar.JUNE:
+                season = 2;
+                break;
+            case Calendar.JULY:
+            case Calendar.AUGUST:
+            case Calendar.SEPTEMBER:
+                season = 3;
+                break;
+            case Calendar.OCTOBER:
+            case Calendar.NOVEMBER:
+            case Calendar.DECEMBER:
+                season = 4;
+                break;
+            default:
+                break;
+        }
+        return season;
+    }
+
+
     /**
      * 根据指定的季度 算出季度初和季度未的时间，精确到秒
-     * 
+     *
      * @param year 年份
-     * @param nSeason 第几季度 
+     * @param nSeason 第几季度
      * @return
      */
     public static Date[] getDatetimeSeasonLimit(int year  , int nSeason){
-        Calendar c = Calendar.getInstance(); 
+        Calendar c = Calendar.getInstance();
         Date[] season = new Date[2];
         c.set(year, Calendar.JANUARY, 1, 0, 0, 0);
         c.set(Calendar.MILLISECOND, 0);
-        if (nSeason == 1) {// 第一季度  
-            c.set(Calendar.MONTH, Calendar.JANUARY);  
-            season[0] = c.getTime();  
-            c.set(Calendar.MONTH, Calendar.MARCH);  
+        if (nSeason == 1) {// 第一季度
+            c.set(Calendar.MONTH, Calendar.JANUARY);
+            season[0] = c.getTime();
+            c.set(Calendar.MONTH, Calendar.MARCH);
             c.set(Calendar.DATE,c.getActualMaximum(Calendar.DATE));
-            season[1] = new Date(c.getTime().getTime() + 24 * 60 *60 *1000l - 1l) ;  
-        } else if (nSeason == 2) {// 第二季度  
-            c.set(Calendar.MONTH, Calendar.APRIL);  
-            season[0] = c.getTime();  
-            c.set(Calendar.MONTH, Calendar.JUNE);  
-            c.set(Calendar.DATE,c.getActualMaximum(Calendar.DATE));
-            season[1] = new Date(c.getTime().getTime() + 24 * 60 *60 *1000l- 1l) ;
-        } else if (nSeason == 3) {// 第三季度  
-            c.set(Calendar.MONTH, Calendar.JULY);  
-            season[0] = c.getTime();  
-            c.set(Calendar.MONTH, Calendar.SEPTEMBER);  
+            season[1] = new Date(c.getTime().getTime() + 24 * 60 *60 *1000l - 1l) ;
+        } else if (nSeason == 2) {// 第二季度
+            c.set(Calendar.MONTH, Calendar.APRIL);
+            season[0] = c.getTime();
+            c.set(Calendar.MONTH, Calendar.JUNE);
             c.set(Calendar.DATE,c.getActualMaximum(Calendar.DATE));
             season[1] = new Date(c.getTime().getTime() + 24 * 60 *60 *1000l- 1l) ;
-        } else if (nSeason == 4) {// 第四季度  
-            c.set(Calendar.MONTH, Calendar.OCTOBER);  
-            season[0] = c.getTime();  
-            c.set(Calendar.MONTH, Calendar.DECEMBER);  
+        } else if (nSeason == 3) {// 第三季度
+            c.set(Calendar.MONTH, Calendar.JULY);
+            season[0] = c.getTime();
+            c.set(Calendar.MONTH, Calendar.SEPTEMBER);
             c.set(Calendar.DATE,c.getActualMaximum(Calendar.DATE));
             season[1] = new Date(c.getTime().getTime() + 24 * 60 *60 *1000l- 1l) ;
-        }  
-        
+        } else if (nSeason == 4) {// 第四季度
+            c.set(Calendar.MONTH, Calendar.OCTOBER);
+            season[0] = c.getTime();
+            c.set(Calendar.MONTH, Calendar.DECEMBER);
+            c.set(Calendar.DATE,c.getActualMaximum(Calendar.DATE));
+            season[1] = new Date(c.getTime().getTime() + 24 * 60 *60 *1000l- 1l) ;
+        }
+
         return season;
     }
-    
+
     /**
      * 上一季度
      * 根据指定的季度 算出季度初和季度未的时间，精确到秒
      * @param year 年份
-     * @param nSeason 第几季度 
+     * @param nSeason 第几季度
      * @return
      */
     public static Date[] getDatetimePreSeasonLimit(int year  , int nSeason){
@@ -974,25 +936,25 @@ public class DateUtil {
         }
         return getDatetimeSeasonLimit(  year  ,   nSeason);
     }
-    
+
     /**
      * 根据指定的年算出年初和年未的时间，精确到秒
-     * 
+     *
      * @param year 年份
      * @return
      */
     public static Date[] getDatetimeYearLimit(int year){
-        Calendar c = Calendar.getInstance(); 
+        Calendar c = Calendar.getInstance();
         Date[] res = new Date[2];
         c.set(Calendar.YEAR, year);
-        c.set(Calendar.MONTH, Calendar.JANUARY);  
-        res[0] = c.getTime();  
-        c.set(Calendar.MONTH, Calendar.DECEMBER);  
+        c.set(Calendar.MONTH, Calendar.JANUARY);
+        res[0] = c.getTime();
+        c.set(Calendar.MONTH, Calendar.DECEMBER);
         c.set(Calendar.DATE,c.getActualMaximum(Calendar.DATE));
         res[1] = new Date(c.getTime().getTime() + 24 * 60 *60 *1000l- 1l) ;
         return res;
     }
-    
+
     /**
      * 去年
      * 根据指定的年算出年初和年未的时间，精确到秒
@@ -1078,21 +1040,6 @@ public class DateUtil {
         return tempStr;
     }
 
-    /**
-     * 计算俩个时间差多少分钟
-     * @param endDate
-     * @param nowDate
-     * @return
-     */
-    public static long getDatePoor3( Date nowDate,Date endDate) {
-        long nm = 1000 * 60l;
-        // long ns = 1000;
-        // 获得两个时间的毫秒时间差异
-        long diff = endDate.getTime() - nowDate.getTime();
-        Long tempLong = diff / nm;
-        return tempLong;
-    }
-
     public static  String getTimes(String date) throws ParseException {
         String uu="上午";
         if(Integer.valueOf(date.substring(0,2))>12){
@@ -1113,7 +1060,7 @@ public class DateUtil {
      * @return
      */
     public static Date getReSetBelongDate(Date date , String startTime  , String endTime){
-        if(Utility.isNullorEmpty(startTime) || Utility.isNullorEmpty(endTime)){
+        if(StringUtils.isEmpty(startTime) || StringUtils.isEmpty(endTime)){
             return date;
         }
         if(startTime.compareTo(endTime) > 0){//跨天
@@ -1198,7 +1145,6 @@ public class DateUtil {
         return weeks[week_index];
     }
 
-
     /**
      * 获取两个日期相隔天数  去掉时分秒，直接比对日
      * @param fDate
@@ -1217,7 +1163,7 @@ public class DateUtil {
 
     public static String getStrTime(String cc_time) {
         BigDecimal bigDecimal = new BigDecimal(cc_time);
-       System.out.print(" bigDecimal.longValue()" +  bigDecimal.longValue())  ;
+        System.out.print(" bigDecimal.longValue()" +  bigDecimal.longValue())  ;
         String re_StrTime = null;
         SimpleDateFormat sdf = new SimpleDateFormat("HH时mm分");
         long lcc_time = Long.valueOf(bigDecimal.longValue());
@@ -1243,200 +1189,78 @@ public class DateUtil {
         cal.add(Calendar.DATE, -1);
         return cal.getTime();
     }
-       /*
-        获取当前时间之前或之后几分钟 minute
-        */
-    public static String getTimeByMinute(Date date, int minute) {
+
+
+    public static Date getDateBefore(Date d,int day){
+        Calendar now =Calendar.getInstance();
+        now.setTime(d);
+        now.set(Calendar.DATE,now.get(Calendar.DATE)-day);
+        return now.getTime();
+    }
+
+    /**
+     * 获取上一个月
+     * @param date
+     * @return
+     */
+    public static String getBeaferMonth(Date date){
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM");
+        Calendar c = Calendar.getInstance();
+        c.setTime(date);
+        c.add(Calendar.MONTH, -1);
+        Date m = c.getTime();
+        String mon = format.format(m);
+        return mon;
+    }
+
+    /**
+     * 获取本月
+     * @param date
+     * @return
+     */
+    public static String getNowWeek(Date date){
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM");
+        Calendar c = Calendar.getInstance();
+        c.setTime(date);
+        Date m = c.getTime();
+        String mon = format.format(m);
+        return mon;
+    }
+
+    /**
+     * 上一周
+     * @param date
+     * @return
+     */
+    public static String getBeaferWeek(Date date){
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Calendar c = Calendar.getInstance();
+        c.setTime(date);
+        c.add(Calendar.DATE, - 7);
+        Date d = c.getTime();
+        String day = format.format(d);
+        return day;
+    }
+
+
+    /**
+     * 获取前几分钟的时间
+     * @param date 日期
+     * @param minute 前几分钟
+     * @return
+     */
+    public static Date getBeforeMinute(Date date,int minute){
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
-        calendar.add(Calendar.MINUTE, minute);
-        return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(calendar.getTime());
-
+        calendar.add(Calendar.MINUTE,-minute);
+        return calendar.getTime();
     }
 
-    /**
-     *  接收日期格式字符转化为中文+日期格式
-     *  刚刚（5分钟前）
-     *  规则：①如果开课时间为当天的日期，显示“今天+时+分”
-     *
-     ②如果开课时间为昨天的日期，显示“昨天+时+分”
-     ③如果开课时间为前天的日期，显示“前天+时+分”
-     ④如果开课时间为明天的日期，显示“明天+时+分”
-     ⑤如果开课时间为后天的日期，显示“后天+时+分”
-     ⑥如果开课时间超出后天，并且还在当前周内，显示“本周X+时+分”
-     ⑦其余日期均显示“月-日  时：分”
-     ⑧如果开课时间不是当前年，显示“年-月-日 时：分”
-     * @param date
-     * @return
-     */
-    public static String transFormationStringDate2(String date){
-        long[] daysBetweenmm = getDaysBetweenmm(date, format(new Date()));
-        if(daysBetweenmm[0]==0&&daysBetweenmm[1]==0&&daysBetweenmm[2]<6){
-            return "刚刚";
-        }
-        return transFormationStringDate(date);
-    }
-
-
-    public static String transFormationStringDate(String date ){
-        Date now = new Date();
-        SimpleDateFormat sss = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        return transFormationStringDate(  date , now, sss.format(now));
-
-    }
-
-
-    /**
-     *  接收日期格式字符转化为中文+日期格式
-     *  规则：①如果开课时间为当天的日期，显示“今天+时+分”
-             ②如果开课时间为昨天的日期，显示“昨天+时+分”
-             ③如果开课时间为前天的日期，显示“前天+时+分”
-             ④如果开课时间为明天的日期，显示“明天+时+分”
-             ⑤如果开课时间为后天的日期，显示“后天+时+分”
-             ⑥如果开课时间超出后天，并且还在当前周内，显示“本周X+时+分”
-             ⑦其余日期均显示“月-日  时：分”
-             ⑧如果开课时间不是当前年，显示“年-月-日 时：分”
-     * @param date
-     * @return
-     */
-    public static String transFormationStringDate(String date , Date newDate, String newDateStr){
-        SimpleDateFormat sss = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        try{
-            String yyyyStr = date.substring(0 , 4);
-            String mmStr = date.substring(5 , 7);
-            String ddStr = date.substring(8,10);
-
-            String hhStr = date.substring(11,13);
-            String MMStr = date.substring(14,16);
-            String ssStr = date.substring(17,19);
-
-            int yyyy = Integer.parseInt(yyyyStr);
-            int mm = Integer.parseInt(mmStr);
-            int dd = Integer.parseInt(ddStr);
-
-            int hh = Integer.parseInt(hhStr);
-            int MM = Integer.parseInt(MMStr);
-            int ss = Integer.parseInt(ssStr);
-
-
-            int yyyy1 = Integer.parseInt(newDateStr.substring(0 , 4));
-            int mm1 = Integer.parseInt(newDateStr.substring(5 , 7));
-            int dd1 = Integer.parseInt(newDateStr.substring(8,10));
-
-            if(yyyy!=yyyy1){//如果开课时间不是当前年，显示“年-月-日 时：分”
-                return  yyyyStr + "-" + mmStr + "-" + ddStr + " " + hhStr + ":" + MMStr;
-            }
-            if(mm==mm1&&dd==dd1){//如果开课时间为当天的日期，显示“今天+时+
-                return "今天"+ " "+ hhStr +":" + MMStr;
-            }
-            Date allDate = sss.parse(date);
-            Long daysBetween = getDaysBetween(newDate,allDate);
-            if(daysBetween==-1){//如果开课时间为昨天的日期，显示“昨天+时+分”
-                return "昨天"+ " "+ hhStr +":" + MMStr;
-            }
-            if(daysBetween==-2){//如果开课时间为前天的日期，显示“前天+时+分”
-                return "前天"+ " "+ hhStr +":" + MMStr;
-            }
-            if(daysBetween==1){//如果开课时间为明天的日期，显示“明天+时+分”
-                return "明天"+ " "+ hhStr +":" + MMStr;
-            }
-            if(daysBetween==2){//如果开课时间为后天的日期，显示“后天+时+分”
-                return "后天"+ " "+ hhStr +":" + MMStr;
-            }
-            if(daysBetween>2||daysBetween<-2){//如果开课时间超出后天
-                Date firstDayOfWeek1 = getFirstDayOfWeek(newDate);//当前日期所在周的第一天
-                Date firstDayOfWeek2 = getFirstDayOfWeek(allDate);//传入日期所在周的第一天
-                if(firstDayOfWeek1.getTime()==firstDayOfWeek2.getTime()){//并且还在当前周内，显示“本周X+时+分”
-                    Long  ad = getDaysBetween(firstDayOfWeek1,allDate);
-                    switch (ad.intValue()){
-                        case 0: return  "本周一"+ " "+ hhStr +":" + MMStr;
-                        case 1: return  "本周二"+ " "+ hhStr +":" + MMStr;
-                        case 2: return  "本周三"+ " "+ hhStr +":" + MMStr;
-                        case 3: return  "本周四"+ " "+ hhStr +":" + MMStr;
-                        case 4:return  "本周五"+ " "+ hhStr +":" + MMStr;
-                        case 5:return  "本周六"+ " "+ hhStr +":" + MMStr;
-                        case 6:return  "本周日"+ " "+ hhStr +":" + MMStr;
-                    }
-                }
-            }
-            //其余日期均显示“月-日  时：分”
-            return  mmStr + "-" + ddStr + " "+ hhStr +":" + MMStr;
-                    //format(allDate,"MM-dd HH:mm");
-        }catch (Exception e){
-            return "日期格式字符转化错误";
-        }
-    }
-
-    /**
-     * 获取时间的各组成部分
-     * @param date
-     * @return
-     */
-    public static int getYMDDate(Date date,String format){
-        SimpleDateFormat sdf = null;
-        try{
-            if(StringUtils.isNotEmpty(format)){
-                if("yyyy".equals(format)){
-                    sdf = new SimpleDateFormat("yyyy");
-                    String formatY = sdf.format(date);
-                    return Integer.parseInt(formatY);
-                }else if("MM".equals(format)){
-                    sdf = new SimpleDateFormat("MM");
-                    String formatY = sdf.format(date);
-                    return Integer.parseInt(formatY);
-                }else if("dd".equals(format)){
-                    sdf = new SimpleDateFormat("dd");
-                    String formatY = sdf.format(date);
-                    return Integer.parseInt(formatY);
-                }
-
-            }
-            return 0;
-        }catch (Exception e){
-            return 0;
-        }
-    }
-
-    /**
-     * 接受开播时间与结束时间 返回播放状态（）
-     * @param startTime
-     * @param endTime
-     * @return
-     */
-    public static String getStatusStr(String startTime,String endTime){
-        if(StringUtils.isNotEmpty(endTime)){
-            return "0";
-        }
+    public static void main(String[] args) {
+//        System.out.println(getBeaferWeek(new Date()));
         Date date = new Date();
-        if(StringUtils.isNotEmpty(startTime)){
-            long time = format(startTime).getTime();
-            if(time>date.getTime()){
-                return "1";
-            }else{
-                return "2";
-            }
-        }
-        return "";
+        System.out.println(DateUtil.getDateTimeStr(date));
+        System.out.println(DateUtil.getDateTimeStr(getBeforeMinute(date,20)));
     }
 
-    public static void main(String[] args){
-
-        String date = "2018-01-12 12:07:06";
-
-        int yyyy = Integer.parseInt(date.substring(0 , 4));
-        int mm = Integer.parseInt(date.substring(5 , 7));
-        int dd = Integer.parseInt(date.substring(8,10));
-
-        int hh = Integer.parseInt(date.substring(11,13));
-        int MM = Integer.parseInt(date.substring(14,16));
-        int ss = Integer.parseInt(date.substring(17,19));
-
-        System.out.println(yyyy);
-        System.out.println(mm);
-        System.out.println(dd);
-
-        System.out.println(hh);
-        System.out.println(MM);
-        System.out.println(ss);
-    }
 }

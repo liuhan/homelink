@@ -1,5 +1,4 @@
 group 'com.smart.homelink'
-version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
 

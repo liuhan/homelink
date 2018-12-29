@@ -3,8 +3,6 @@ plugins {
 }
 
 group 'com.smart.homelink'
-version '1.0'
-
 sourceCompatibility = 1.8
 
 repositories {
@@ -12,5 +10,9 @@ repositories {
 }
 
 dependencies {
+    compile project(':homelink_dao')
+    compile project(':homelink_model')
+    compile project(':homelink_util')
+    compile project(':homelink_db_config')
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }

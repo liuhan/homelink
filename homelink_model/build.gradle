@@ -1,6 +1,4 @@
 group 'com.smart.homelink'
-version '1.0-SNAPSHOT'
-
 apply plugin: 'java'
 
 sourceCompatibility = 1.8
@@ -10,6 +8,6 @@ repositories {
 }
 
 dependencies {
-    compile project(':homelink_model')
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
+jar.enabled=true

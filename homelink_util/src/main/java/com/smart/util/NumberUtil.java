@@ -54,21 +54,5 @@ public class NumberUtil {
             return str.charAt(str.length() - 1) == '.' ? str.substring(0, str.length() - 1) : str;
         }
     }
-    public static void setCourseListMap(List<Map> maps){
-        for (Map map : maps) {
-            String startTime = map.get("startTime").toString();
-            String endTime = map.get("endTime").toString();
-            if (endTime != null) {
-                map.put("startTimeStr", DateUtil.transFormationStringDate(map.get("endTime").toString()));
-            } else {
-                map.put("startTimeStr", "");
-            }
-            String liveTimeStatus =DateUtil.getStatusStr(startTime, endTime);
-            map.put("liveTimeStatus", liveTimeStatus);
-            if(map.get("joinCount") != null){
-                map.put("joinCount", com.smart.util.StringUtil.numberStr(new BigDecimal(map.get("joinCount").toString())));
-            }
-        }
-    }
 
 }

@@ -59,6 +59,7 @@ public class ServicePlatformWebMvcConfigurer implements WebMvcConfigurer {
                 SerializerFeature.WriteDateUseDateFormat
         );
 
+
         //处理中文乱码问题
         List<MediaType> fastMediaTypes = new ArrayList<MediaType>();
         fastMediaTypes.add(MediaType.APPLICATION_JSON_UTF8);

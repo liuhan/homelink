@@ -13,6 +13,7 @@ import org.springframework.integration.core.MessageProducer;
 import org.springframework.integration.mqtt.core.DefaultMqttPahoClientFactory;
 import org.springframework.integration.mqtt.core.MqttPahoClientFactory;
 import org.springframework.integration.mqtt.inbound.MqttPahoMessageDrivenChannelAdapter;
+import org.springframework.integration.mqtt.outbound.MqttPahoMessageHandler;
 import org.springframework.integration.mqtt.support.DefaultPahoMessageConverter;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageChannel;
@@ -24,6 +25,53 @@ import java.util.Map;
 @Configuration
 @IntegrationComponentScan
 public class MqttReceiveConfig {
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getHostUrl() {
+        return hostUrl;
+    }
+
+    public void setHostUrl(String hostUrl) {
+        this.hostUrl = hostUrl;
+    }
+
+    public String getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
+    }
+
+    public String getDefaultTopic() {
+        return defaultTopic;
+    }
+
+    public void setDefaultTopic(String defaultTopic) {
+        this.defaultTopic = defaultTopic;
+    }
+
+    public int getCompletionTimeout() {
+        return completionTimeout;
+    }
+
+    public void setCompletionTimeout(int completionTimeout) {
+        this.completionTimeout = completionTimeout;
+    }
 
     @Value("${spring.mqtt.username}")
     private String username;
@@ -76,6 +124,18 @@ public class MqttReceiveConfig {
         adapter.setQos(1);
         adapter.setOutputChannel(mqttInputChannel());
         return adapter;
+    }
+    @Bean
+    @ServiceActivator(inputChannel = "mqttOutboundChannel")
+    public MessageHandler mqttOutbound() {
+        MqttPahoMessageHandler messageHandler =  new MqttPahoMessageHandler(clientId, mqttClientFactory()  );
+        messageHandler.setAsync(true);
+        messageHandler.setDefaultTopic(defaultTopic);
+        return messageHandler;
+    }
+    @Bean
+    public MessageChannel mqttOutboundChannel() {
+        return new DirectChannel();
     }
 
     //通过通道获取数据

@@ -31,7 +31,7 @@ function  readHumiture()
   local curAltsgn = (curAlt < 0 and -1 or 1); curAlt = curAltsgn*curAlt
   local strAltitude = string.format("%s%d.%02d", curAltsgn<0 and "-" or "", curAlt/100, curAlt%100);
   print("altitude="..strAltitude)
-  local returnStr = string.format("{\"T\":%s,\"QFE\":%s,\"QNH\":%s,\"humidity\":%s,\"dew_point\":%s,\"altitude\":%s}"
+  local returnStr = string.format("{\"T\":%s,\"QFE\":%s,\"QNH\":%s,\"humidity\":%s,\"dew_point\":%s,\"altitude\":%s,\"componentId\":1}"
      , strT, strQFE , strQNH ,strHumidity,strDew_point ,strAltitude  );
   print(returnStr)
   return returnStr

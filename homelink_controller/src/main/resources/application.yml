@@ -1,26 +1,30 @@
 spring:
   profiles:
     active: dev
-  mqtt:
+  link.mqtt:
     username:
     password:
     url: tcp://112.126.90.93:8888
-    client.id: service_platform_consumer
-    default.topic: /homelink
+    pushClientId: homelink_controller_push_1
+    subscribeClientId: homelink_controller_subscribe_1
+    subscribeTopic: /homecontroller/1
+    pushTopic: /homelink_writer
     completionTimeout: 5000
-  cmqtt:
+  controller.mqtt:
     username:
     password:
-    url: tcp://localhost:1883
-    client.id: home_controller
-    default.topic: /homecenter
+    url: tcp://192.168.11.12:1883
+    subscribeClientId: home_controller_subscribe
+    pushClientId: home_controller_push
+    subscribeTopic: /homecenter
     completionTimeout: 5000
   datasource:
     url: jdbc:sqlite::resource:sqllite/controller.db
     username:
     password:
     driverClassName: org.sqlite.JDBC
-
+server:
+  port: 9090
 #pagehelper 分页
 pagehelper:
   #dialect: com.github.pagehelper.dialect.helper.MySqlDialect

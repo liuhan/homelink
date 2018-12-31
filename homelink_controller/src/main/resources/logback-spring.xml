@@ -23,7 +23,7 @@
     <logger name="java.sql.PreparedStatement" level="DEBUG" />
 
     <!-- 下面配置一些第三方包的日志过滤级别 -->
-    <logger name="com.com.smart.homelink" level="DEBUG" additivity="true"/>
+    <logger name="com.smart.homelink" level="DEBUG" additivity="true"/>
     <logger name="org.mybatis" level="DEBUG"/>
     <logger name="org.springframework.web" level="info" />
     <root level="info">

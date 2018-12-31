@@ -4,6 +4,9 @@ package com.smart.util.redis;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
 import java.util.Random;
@@ -12,6 +15,7 @@ import java.util.Random;
  * Created by han on 2017/7/9.
  */
 @Component("redisLock")
+@ConditionalOnBean(RedisUtil.class)
 public class RedisLock {
     private static final long MILLI_NANO_TIME = 1000000l;
     @Autowired

@@ -2,6 +2,8 @@ package com.smart.util.redis;
 
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,7 +17,6 @@ import java.util.Set;
 
 /**
  * redis cluster
- * Created by syl on 2017/12/11.
  */
 @Configuration
 @ConditionalOnClass({JedisCluster.class})
@@ -26,6 +27,7 @@ public class JedisClusterConfig {
     private RedisProperties redisProperties;
 
     @Bean
+    @ConditionalOnProperty("spring.redis")
     public JedisCluster getJedisCluster() {
         String[] serverArray = redisProperties.getClusterNodes().split(",");
         Set<HostAndPort> nodes = new HashSet<>();

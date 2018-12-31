@@ -21,6 +21,6 @@ end)
 
 
 function  sendData()  
-  m:publish("/homelink",readHumiture(), 0, 0, function(client) print("sent") end)
+  m:publish("/homecenter",readHumiture(), 0, 0, function(client) print("sent") end)
 end
 

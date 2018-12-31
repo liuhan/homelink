@@ -1,6 +1,7 @@
 package com.smart.util.redis;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.stereotype.Component;
 /**
  * 静态方法取得redisUtil对象辅助类
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Component;
  * @ClassName: RedisStatic
  */
 @Component
+@ConditionalOnBean(RedisUtil.class)
 public class RedisStatic {
     private static RedisUtil redisUtil = null;
 

@@ -4,6 +4,7 @@ import com.smart.util.ObjectUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 import redis.clients.jedis.*;
 
@@ -13,9 +14,9 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * Created by syl on 2017/12/11.
  */
 @Component
+@ConditionalOnProperty("spring.redis")
 public class RedisUtil   {
     private static final Logger logger = LoggerFactory.getLogger(RedisUtil.class);
     @Autowired

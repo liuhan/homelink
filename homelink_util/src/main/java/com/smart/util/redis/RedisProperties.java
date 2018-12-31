@@ -1,11 +1,11 @@
 package com.smart.util.redis;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 /**
  * redis config
- * Created by syl on 2017/12/11.
  */
 @Component
 @ConfigurationProperties(prefix = "spring.redis")

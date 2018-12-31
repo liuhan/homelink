@@ -24,7 +24,7 @@ wifi_got_ip_event = function(T)
   tmr.create():alarm(3000, tmr.ALARM_SINGLE, startup)
 
   -- for TLS: m:connect("192.168.11.118", secure-port, 1)
-  m:connect("112.126.90.93", 8888, 0, function(client)
+  m:connect("192.168.11.12", 1883, 0, function(client)
     print("connected")
       -- Calling subscribe/publish only makes sense once the connection
       -- was successfully established. You can do that either here in the
@@ -33,9 +33,9 @@ wifi_got_ip_event = function(T)
       -- m:on("connect", function)).
     
       -- subscribe topic with qos = 0
-    client:subscribe("/homelink", 0, function(client) print("subscribe success") end)
+    --client:subscribe("/homecenter", 0, function(client) print("subscribe success") end)
 
-    tmr.alarm(0, 2000, tmr.ALARM_AUTO, sendData)
+    tmr.alarm(0, 20000, tmr.ALARM_AUTO, sendData)
     
       -- publish a message with data = hello, QoS = 0, retain = 0
       -- client:publish("/homelink", "hello", 0, 0, function(client) print("sent") end)

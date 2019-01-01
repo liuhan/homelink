@@ -40,6 +40,8 @@ public class ControllerMQTTConfig {
     private LinkMQTTServer linkMQTTServer;
     private int count = 0;
 
+    public static BigDecimal temp ;
+
     @Autowired
     public PlayerService playerService;
     @Resource
@@ -83,7 +85,7 @@ public class ControllerMQTTConfig {
                 map.put("homeId",1);
                 log.info("收到消息:{}",JSON.toJSONString(map));
 
-                BigDecimal temp =  (BigDecimal)map.get("T");
+                temp =  (BigDecimal)map.get("T");
                 if (temp.compareTo(new BigDecimal("24")) < 0 && count == 0) {
                     playerService.play("你家目前温度为："+temp+"摄氏度，低于警界温度，请注意防寒保暖！");
                     count++;

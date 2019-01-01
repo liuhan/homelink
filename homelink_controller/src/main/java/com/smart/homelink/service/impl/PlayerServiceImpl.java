@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
 import java.io.IOException;
 
 @Service
@@ -28,6 +29,15 @@ public class PlayerServiceImpl implements PlayerService {
 
     @Override
     public void play(String text) {
+        String mp3Address = speechFileBasePath + "/" + MD5.getMD5(text) + ".mp3";
+        File file = new File(mp3Address);
+        //如果已存在
+        if (file.exists()) {
+            MplayerCommand mc = new MplayerCommand(mp3Address);
+            CmdExecuter.exec(mc);
+            return;
+        }
+
         // 初始化一个AipSpeech
         AipSpeech client = new AipSpeech(APP_ID, API_KEY, SECRET_KEY);
 
@@ -38,7 +48,7 @@ public class PlayerServiceImpl implements PlayerService {
         TtsResponse res = client.synthesis(text, "zh", 1, null);
         byte[] data = res.getData();
         JSONObject res1 = res.getResult();
-        String mp3Address = speechFileBasePath + "/" + MD5.getMD5(text) + ".mp3";
+
         if (data != null) {
             try {
                 Util.writeBytesToFileSystem(data, mp3Address);

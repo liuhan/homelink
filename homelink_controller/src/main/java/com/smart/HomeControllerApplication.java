@@ -1,5 +1,7 @@
 package com.smart;
 
+import com.smart.homelink.cmd.CmdExecuter;
+import com.smart.homelink.cmd.MplayerCommand;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -18,6 +20,7 @@ public class HomeControllerApplication {
 
     @Bean
     public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
+
         return args -> {
 
             System.out.println("Let's inspect the beans provided by Spring Boot:");

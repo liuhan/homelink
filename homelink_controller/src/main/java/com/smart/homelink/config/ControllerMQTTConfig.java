@@ -2,6 +2,7 @@ package com.smart.homelink.config;
 
 
 import com.alibaba.fastjson.JSON;
+import com.smart.homelink.service.PlayerService;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,6 +26,7 @@ import org.springframework.messaging.MessageHandler;
 import org.springframework.messaging.MessagingException;
 
 import javax.annotation.Resource;
+import java.math.BigDecimal;
 import java.util.Map;
 
 @Configuration
@@ -36,6 +38,10 @@ public class ControllerMQTTConfig {
     ControllerMQTT controllerMQTT;
     @Autowired
     private LinkMQTTServer linkMQTTServer;
+    private int count = 0;
+
+    @Autowired
+    public PlayerService playerService;
     @Resource
     LinkMQTT linkMQTT;
     @Bean
@@ -76,6 +82,13 @@ public class ControllerMQTTConfig {
                 Map map = JSON.parseObject(json ,Map.class);
                 map.put("homeId",1);
                 log.info("收到消息:{}",JSON.toJSONString(map));
+
+                BigDecimal temp =  (BigDecimal)map.get("T");
+                if (temp.compareTo(new BigDecimal("24")) < 0 && count == 0) {
+                    playerService.play("你家目前温度为："+temp+"摄氏度，低于警界温度，请注意防寒保暖！");
+                    count++;
+                }
+
                 linkMQTTServer.sendToMqtt(JSON.toJSONString(map) , linkMQTT.getPushTopic());
             }
 

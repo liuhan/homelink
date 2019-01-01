@@ -23,8 +23,7 @@ spring:
     username:
     password:
     driverClassName: org.sqlite.JDBC
-server:
-  port: 9090
+
 #pagehelper 分页
 pagehelper:
   #dialect: com.github.pagehelper.dialect.helper.MySqlDialect

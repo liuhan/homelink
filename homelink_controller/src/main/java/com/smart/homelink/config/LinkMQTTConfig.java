@@ -2,6 +2,8 @@ package com.smart.homelink.config;
 
 
 import com.alibaba.fastjson.JSON;
+import com.smart.homelink.cmd.WakeComputerCommand;
+import com.smart.homelink.service.PlayerService;
 import com.smart.util.redis.RedisProperties;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.slf4j.Logger;
@@ -36,6 +38,8 @@ public class LinkMQTTConfig {
     private static final Logger log = LoggerFactory.getLogger(LinkMQTTConfig.class);
     @Resource
     LinkMQTT linkMQTT;
+    @Autowired
+    public PlayerService playerService;
 
     @Bean
     public MqttConnectOptions linkMQTTConnectOptions(){
@@ -72,7 +76,23 @@ public class LinkMQTTConfig {
         return new MessageHandler() {
             @Override
             public void handleMessage(Message<?> message) throws MessagingException {
-                System.out.println(message.getPayload());
+                String json = message.getPayload().toString();
+                Map map = JSON.parseObject(json ,Map.class);
+                map.put("homeId",1);
+                log.info("收到消息:{}",JSON.toJSONString(map));
+                String type = (String)map.get("type");
+                if ("wake_computer".equals(type)) {
+                    WakeComputerCommand command = new WakeComputerCommand("192.168.11.9");
+                } else if ("speak_word".equals(type)) {
+                    String content = (String)map.get("content");
+                    playerService.play(content);
+                } else if ("broadcast_now_tmp".equals(type)) {
+                    if (ControllerMQTTConfig.temp != null) {
+                        playerService.play("你家目前温度为：" + ControllerMQTTConfig.temp.intValue() + "摄氏度");
+                    } else {
+                        playerService.play("温度正在探测中，请稍后询问！");
+                    }
+                }
             }
 
         };

@@ -49,8 +49,8 @@ public class ControllerMQTTConfig {
     @Bean
     public MqttConnectOptions ControllerMQTTConnectOptions(){
         MqttConnectOptions mqttConnectOptions = new MqttConnectOptions();
-//        mqttConnectOptions.setUserName(username);
-//        mqttConnectOptions.setPassword(password.toCharArray());
+//        mqttConnectOptions.setUserName(controllerMQTT.getUsername());
+//        mqttConnectOptions.setPassword(controllerMQTT.getPassword().toCharArray());
         mqttConnectOptions.setServerURIs(new String[]{controllerMQTT.getUrl()});
         mqttConnectOptions.setKeepAliveInterval(2);
         return mqttConnectOptions;

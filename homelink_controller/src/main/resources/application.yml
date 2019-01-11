@@ -11,9 +11,9 @@ spring:
     pushTopic: /homelink_writer
     completionTimeout: 5000
   controller.mqtt:
-    username:
-    password:
-    url: tcp://192.168.11.12:1883
+    username: abc
+    password: 861016
+    url: tcp://192.168.11.8:1883
     subscribeClientId: home_controller_subscribe
     pushClientId: home_controller_push
     subscribeTopic: /homecenter

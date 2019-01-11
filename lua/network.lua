@@ -24,7 +24,7 @@ wifi_got_ip_event = function(T)
   tmr.create():alarm(3000, tmr.ALARM_SINGLE, startup)
 
   -- for TLS: m:connect("192.168.11.118", secure-port, 1)
-  m:connect("192.168.11.12", 1883, 0, function(client)
+  m:connect("192.168.11.8", 1883, 0, function(client)
     print("connected")
       -- Calling subscribe/publish only makes sense once the connection
       -- was successfully established. You can do that either here in the

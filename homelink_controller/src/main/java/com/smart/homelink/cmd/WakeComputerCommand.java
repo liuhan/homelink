@@ -30,8 +30,8 @@ public class WakeComputerCommand implements ICommand {
     @Override
     public List<String> getCommand() {
         List<String> commend = new ArrayList<>();
-        commend.add("/bin/ping");
-        commend.add(this.computerIp);
+        commend.add("curl");
+        commend.add("http://" + this.computerIp);
         return commend;
     }
 

@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSON;
 import com.smart.homelink.cmd.WakeComputerCommand;
 import com.smart.homelink.service.PlayerService;
 import com.smart.util.redis.RedisProperties;
+import org.apache.commons.lang3.StringUtils;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -82,7 +83,10 @@ public class LinkMQTTConfig {
                 log.info("收到消息:{}",JSON.toJSONString(map));
                 String type = (String)map.get("type");
                 if ("wake_computer".equals(type)) {
-                    WakeComputerCommand command = new WakeComputerCommand("192.168.11.9");
+                    String ip = (String)map.get("ip");
+                    if (!StringUtils.isEmpty(ip)) {
+                        WakeComputerCommand command = new WakeComputerCommand(ip);
+                    }
                 } else if ("speak_word".equals(type)) {
                     String content = (String)map.get("content");
                     playerService.play(content);
